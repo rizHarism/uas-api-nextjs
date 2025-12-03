@@ -2,25 +2,35 @@ import prisma from "../../../../lib/prisma";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
+import { RateLimiterMemory } from "rate-limiter-flexible";
+
+// cek untuk rate limiter
+const rateLimiter = new RateLimiterMemory({
+  points: 5, // 5 attempts
+  duration: 15 * 60, // 15 menit
+});
 
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
     const ip = req.ip || req.headers.get("x-forwarded-for") || "unknown";
+    const key = `${email}:${ip}`;
 
-    const isLimited = await limiter.check(5, `login:${email}:${ip}`);
+    try {
+      await rateLimiter.consume(key);
+    } catch (rateLimitError) {
+      const retrySeconds = Math.ceil(rateLimitError.msBeforeNext / 1000);
 
-    if (isLimited) {
       return NextResponse.json(
         {
           status: false,
-          error: "Terlalu banyak percobaan login. Coba lagi dalam 15 menit.",
-          code: 429, // Status code rate limit
+          error: "Terlalu banyak percobaan login. Coba lagi dalam 15 menit",
+          code: 429,
         },
         {
           status: 429,
           headers: {
-            "Retry-After": "900", // 15 menit dalam detik
+            "Retry-After": retrySeconds.toString(),
           },
         }
       );
