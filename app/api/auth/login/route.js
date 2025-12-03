@@ -6,6 +6,25 @@ import { SignJWT } from "jose";
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
+    const ip = req.ip || req.headers.get("x-forwarded-for") || "unknown";
+
+    const isLimited = await limiter.check(5, `login:${email}:${ip}`);
+
+    if (isLimited) {
+      return NextResponse.json(
+        {
+          status: false,
+          error: "Terlalu banyak percobaan login. Coba lagi dalam 15 menit.",
+          code: 429, // Status code rate limit
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": "900", // 15 menit dalam detik
+          },
+        }
+      );
+    }
 
     // get user data dari db dengan email (unique)
     const user = await prisma.user.findUnique({ where: { email } });
