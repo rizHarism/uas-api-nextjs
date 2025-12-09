@@ -47,7 +47,7 @@ npm run dev
 # default http://localhost:3000
 ```
 
-# API Reference
+# API Documentation
 
 ## Auth - Register
 
@@ -62,8 +62,10 @@ npm run dev
 
   ```json
   {
-    "email": "user@example.com",
-    "password": "secret123"
+    "name": "admin",
+    "email": "admin@example.com",
+    "password": "secret123",
+    "role": "ADMIN"
   }
   ```
 
@@ -77,11 +79,50 @@ npm run dev
     "message": "User berhasil dibuat",
     "data": {
       "id": 2,
-      "name": "administrator",
-      "email": "administrator@mail.com",
+      "name": "admin",
+      "email": "admin@mail.com",
       "role": "ADMIN",
       "createdAt": "2025-12-09T14:07:48.485Z",
       "updatedAt": "2025-12-09T14:07:48.485Z"
+    }
+  }
+  ```
+
+## Auth - Login
+
+### Request
+
+- **Method:** `POST`
+- **Headers:**
+  ```
+  Content-Type: application/json
+  ```
+- **Body:**
+
+  ```json
+  {
+    "email": "admin@example.com",
+    "password": "secret123"
+  }
+  ```
+
+### ✅ Response
+
+- **Status:** `200 OK`
+
+  ```json
+  {
+    "status": true,
+    "message": "Login Sukses",
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImV4cCI6MTc2NTMwMzkxM30.ccsy9k4ZcvQqcpb8yJFW2t4X52SmT0_mgnJbeH0_UuY",
+    "data": {
+      "id": 1,
+      "email": "admin@mail.com",
+      "password": "$2b$10$O9aV3RvZ3BlATm2txlRJCOaqdPkYBWuLbSuaksI..fQ8PXueSXQ0a",
+      "name": "admin",
+      "role": "ADMIN",
+      "createdAt": "2025-12-03T16:48:39.740Z",
+      "updatedAt": "2025-12-03T16:48:39.740Z"
     }
   }
   ```

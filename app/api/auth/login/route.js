@@ -37,7 +37,7 @@ export async function POST(req) {
     }
 
     // get user data dari db dengan email (unique)
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({ where: { email: email } });
 
     if (!user) {
       return NextResponse.json(
@@ -78,7 +78,15 @@ export async function POST(req) {
       status: true,
       message: "login Sukses",
       token: token,
-      data: user,
+      data1: user,
+      data: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      },
     });
   } catch (error) {
     console.error("Error Login: ", error);
