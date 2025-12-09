@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.1.0",
     "@prisma/client": "^7.0.1",
     "bcryptjs": "^3.0.3",
     "jose": "^6.1.2",
@@ -19,7 +20,6 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@prisma/adapter-pg": "^7.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
