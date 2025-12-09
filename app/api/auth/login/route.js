@@ -78,7 +78,6 @@ export async function POST(req) {
       status: true,
       message: "login Sukses",
       token: token,
-      data1: user,
       data: {
         id: user.id,
         name: user.name,
