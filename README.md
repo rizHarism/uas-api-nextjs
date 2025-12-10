@@ -38,7 +38,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
 
 - **Schema**
 
-  ```json
+  ```prisma
   model User {
     id        Int      @id @default(autoincrement())
     email     String   @unique
