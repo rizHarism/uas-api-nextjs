@@ -10,9 +10,9 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
 - [Prisma](https://www.prisma.io/) – ORM untuk PostgreSQL
 - [Vercel](https://vercel.com/) – Hosting serverless yang support Next.js
 
-## Struktur Directori Route API
+## Struktur Direktori Route API
 
-- ```bash
+```bash
   📁api
   └── 📁auth
       └── 📁login
@@ -27,7 +27,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
       └── 📁[id]
           ├── route.js
       ├── route.js
-  ```
+```
 
 ## Setup Lokal
 
