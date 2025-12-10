@@ -3,6 +3,19 @@
 API sederhana menggunakan **Next.js**, **Prisma**, dan **PostgreSQL**.  
 Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manajemen data siswa (`students`) serta pengguna (`users`).
 
+Demo API bisa diakses di **_https://uas-api-nextjs.vercel.app/_**
+
+#### Anggota Kelompok
+
+```bash
+    Rizqi Harisma U.        23104410001
+    Dimas Akbar Maulana     23104410056
+    Angga Novantara         23104410044
+    Andrecaesar Setiawan    23104410041
+    Intan Lusiana           23104410106
+    Enjing Dwi Retno Wulan  23104410049
+```
+
 ## Teknologi
 
 - [Node.js](https://nodejs.org/en) - JavaScript Runtime agar JS bisa berjalan sebagai BackEnd
