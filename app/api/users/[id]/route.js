@@ -1,6 +1,7 @@
 import prisma from "../../../../lib/prisma";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { email } from "zod";
 
 export async function GET(req, { params }) {
   try {
@@ -130,13 +131,21 @@ export async function DELETE(req, { params }) {
 
     if (!userExist) {
       return NextResponse.json(
-        { message: "ID User tidak ditemukan" },
+        {
+          status: "false",
+          error: "ID User tidak ditemukan",
+          code: 404,
+        },
         { status: 404 } // 404 Not Found lebih tepat
       );
     }
 
     const deletedUser = await prisma.user.delete({
       where: { id: id },
+      select: {
+        name: true,
+        email: true,
+      },
     });
     return NextResponse.json(
       {
