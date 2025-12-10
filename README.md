@@ -190,10 +190,9 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Email tidak ditemukan" / "Password anda salah",
+    "error": "Email tidak ditemukan / Password anda salah",
     "code": 401
   }
-
   ```
 
 ## Users - ADD
@@ -244,7 +243,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Unauthorized: Token Missing" / "Unauthorized : Invalid Token",
+    "error": "Unauthorized: Token Missing / Unauthorized : Invalid Token",
     "code": 401
   }
   ```
@@ -320,7 +319,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Unauthorized: Token Missing" / "Unauthorized : Invalid Token",
+    "error": "Unauthorized: Token Missing / Unauthorized : Invalid Token",
     "code": 401
   }
   ```
@@ -409,7 +408,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
     "name": "John Doe",
     "email": "admin@example.com",
     "password": "anotherstring",
-    "role": "ADMIN" / "USER"
+    "role": "ADMIN / USER"
   }
   ```
 
@@ -564,7 +563,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Unauthorized: Token Missing" / "Unauthorized : Invalid Token",
+    "error": "Unauthorized: Token Missing / Unauthorized : Invalid Token",
     "code": 401
   }
   ```
@@ -630,7 +629,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Unauthorized: Token Missing" / "Unauthorized : Invalid Token",
+    "error": "Unauthorized: Token Missing / Unauthorized : Invalid Token",
     "code": 401
   }
   ```
@@ -734,7 +733,7 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
   ```json
   {
     "status": false,
-    "error": "Unauthorized: Token Missing" / "Unauthorized : Invalid Token",
+    "error": "Unauthorized: Token Missing / Unauthorized : Invalid Token",
     "code": 401
   }
   ```
