@@ -5,12 +5,29 @@ Project ini menyediakan endpoint untuk autentikasi (`login/register`) dan manaje
 
 ## Teknologi
 
+- [Node.js](https://nodejs.org/en) - JavaScript Runtime agar JS bisa berjalan sebagai BackEnd
 - [Next.js](https://nextjs.org/) – Framework React untuk frontend & API routes
 - [Prisma](https://www.prisma.io/) – ORM untuk PostgreSQL
-- [Vercel](https://vercel.com/) – Hosting serverless untuk Next.js API
-- Node.js ≥ 18
+- [Vercel](https://vercel.com/) – Hosting serverless yang support Next.js
 
----
+## Struktur Directori Route API
+
+- ```bash
+  📁api
+  └── 📁auth
+      └── 📁login
+          ├── route.js
+      └── 📁register
+          ├── route.js
+  └── 📁students
+      └── 📁[id]
+          ├── route.js
+      ├── route.js
+  └── 📁users
+      └── 📁[id]
+          ├── route.js
+      ├── route.js
+  ```
 
 ## Setup Lokal
 
