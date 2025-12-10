@@ -32,6 +32,7 @@ export async function POST(req) {
     const newStudent = await prisma.student.create({
       data: data,
     });
+
     return NextResponse.json({
       status: true,
       message: "Data Siswa berhasil ditambahkan",
@@ -42,7 +43,7 @@ export async function POST(req) {
     return NextResponse.json(
       {
         status: false,
-        message: "Error Server",
+        error: "Error Server",
         code: 500,
       },
       { status: 500 }

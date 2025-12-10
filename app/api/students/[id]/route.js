@@ -115,6 +115,7 @@ export async function DELETE(req, { params }) {
 
     const deletedStudent = await prisma.student.delete({
       where: { id: id },
+      select: { nim: true, name: true },
     });
 
     return NextResponse.json(
